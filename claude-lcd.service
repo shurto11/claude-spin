@@ -1,0 +1,12 @@
+[Unit]
+Description=Claude LCD usage display
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/shurto11/claude-spin/app.py
+Restart=on-failure
+RestartSec=5
+User=shurto11
+
+[Install]
+WantedBy=multi-user.target

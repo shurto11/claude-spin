@@ -1,0 +1,14 @@
+services:
+  lcd:
+    build:
+      context: .
+      dockerfile: Dockerfile.lcd
+    restart: unless-stopped
+    devices:
+      - /dev/i2c-1:/dev/i2c-1
+    volumes:
+      - /tmp:/tmp
+      - /home/shurto11/.claude/projects:/claude/projects:ro
+    environment:
+      - CLAUDE_PROJECTS_DIR=/claude/projects
+      - PYTHONUNBUFFERED=1
